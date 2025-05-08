@@ -1,0 +1,98 @@
+# Project Prometheus: System Architecture
+
+**Document Version:** 1.5 (Incl. Stage 2 SOP Gen)
+**Date:** May 8, 2025
+**Prepared by:** AI Systems Lead (with PM Support)
+
+## 1. Overview
+
+Project Prometheus is designed as a sophisticated, **centrally deployed,** multi-agent multimodal RAG system. Its architecture prioritizes modularity, scalability, performance, and security. Core capabilities include advanced diagram/image processing, CMMS integration, expert troubleshooting (UI/Audio), multilingual support, and ROI calculation. **The architecture anticipates future ("Stage 2") modular integration of SOP generation assistance, user-to-user chat, and task management functionalities.**
+
+## 2. Core Architectural Principles
+(No changes from v1.1)
+
+## 3. Key Architectural Components
+
+**(Diagram: Would now include interactions showing the Synthesis Agent potentially outputting structured Markdown for SOPs, and an optional Markdown-to-PDF converter tool, marked as "Stage 2 / Future".)**
+
+### 3.1. Data Sources
+(No changes from v1.1)
+
+### 3.2. Data Ingestion & Processing Layer (Centralized)
+(No changes from v1.1)
+
+### 3.3. Data Storage Layer (Centralized)
+(No changes from v1.2)
+1.  Vector Database (Qdrant)
+2.  Graph Database (Neo4j)
+3.  (Future) Predictive Cache (e.g., Redis)
+4.  ROI Data Store
+5.  (Stage 2 / Future) Chat Message Store
+6.  (Stage 2 / Future) Task Management Database
+7.  **(Stage 2 / Future) Draft SOP Storage:** (Potentially simple file storage or database for generated draft SOPs awaiting review).
+
+### 3.4. Core RAG & Agent Orchestration Layer (Centralized)
+(Agents and core tools remain as in v1.2)
+1.  Embedding Models
+2.  Retrieval Agents
+3.  Multi-Agent Framework (8+ Specialized Agents):
+    * `QueryUnderstandingAgent`
+    * `MultimodalRetrievalAgent(s)`
+    * `TroubleshootingAgent` (or enhanced Synthesis logic)
+    * `CrossModalFusionAgent`
+    * `ValidationAgent`
+    * **`SynthesisAgent (Reasoning Core)`:**
+        * Uses core LLM.
+        * Generates standard responses, troubleshooting steps.
+        * **(Stage 2 Capability): Can be prompted to generate structured output (e.g., Markdown) for draft SOPs/instructions based on retrieved context.**
+    * `SafetyVerificationAgent` (**enhanced in Stage 2 to potentially check generated procedures against known safety rules if feasible**).
+    * `AdaptiveInteractionAgent (UI Driver)`
+    * `(Future) CacheAgent`
+4.  Orchestration Framework
+5.  Advanced Reasoning Models (Core LLM)
+6.  Supporting Tools (Modular Components):
+    * `LanguageDetectionTool`
+    * `TextToSpeechTool (TTS)`
+    * (Optional) `MachineTranslationTool`
+    * **(Stage 2 / Future - Optional) `MarkdownToPdfTool`:** Converts generated Markdown SOP drafts into a printable PDF format, potentially applying a template.
+
+### 3.5. ROI Calculation Layer
+(No changes from v1.4)
+* ROI Calculation Service
+* Baseline Metrics Input Mechanism
+
+### 3.6. Collaboration & Workflow Layer (Stage 2 / Future)
+(No changes from v1.4)
+* Real-Time Chat Service
+* Task Management Service
+
+### 3.7. User Interface (UI) Layer (Accessed Remotely from Plants)
+(Formerly 3.6)
+* **Frontend Application:** Web interface.
+* **Key Features:** Query input, results display (text, images, diagrams), audio playback controls, language handling, ROI Dashboard/Input, source attribution, feedback, conversation history.
+* **(Stage 2 / Future UI Components):**
+    * **SOP Generation Request/Display:** Interface to request SOP generation, view/edit the generated Markdown draft, potentially trigger PDF conversion, and manage review status.
+    * Integrated Chat Panel.
+    * Task Management Views.
+
+### 3.8. Deployment & Operations (Centralized)
+(Formerly 3.7)
+* (No significant changes from v1.2)
+
+### 3.9. Cross-Cutting Concerns
+(Formerly 3.8)
+* (No significant changes from v1.2)
+
+## 4. Data Flow (Conceptual - SOP Generation - Stage 2)
+
+1.  User requests SOP generation via UI (e.g., "Create SOP for task X using manual Y").
+2.  Query understanding identifies intent and context requirements.
+3.  Retrieval agents gather relevant procedures, safety info, diagrams, parts lists from Neo4j/Qdrant/CMMS.
+4.  Context is fused and validated.
+5.  `SynthesisAgent` receives context and a specific prompt to generate an SOP in Markdown format with defined sections.
+6.  `SafetyVerificationAgent` performs checks (potentially enhanced for procedural content).
+7.  `AdaptiveInteractionAgent` receives the Markdown draft.
+8.  UI displays the draft SOP, potentially allowing edits or triggering an optional `MarkdownToPdfTool`.
+9.  **Crucially: A human expert reviews, edits (if necessary), and formally approves the draft SOP outside or through a dedicated workflow before it becomes official.**
+
+This architecture incorporates SOP generation as a specialized task for the Synthesis Agent, leveraging the core RAG capabilities and adding optional formatting/review components.
