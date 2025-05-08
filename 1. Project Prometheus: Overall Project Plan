@@ -1,0 +1,121 @@
+# Project Prometheus: Overall Project Plan
+
+**Document Version:** 1.5 (Incl. Stage 2 SOP Gen)
+**Date:** May 8, 2025
+**Prepared for:** Executive Team
+**Prepared by:** AI Systems Lead (with PM Support)
+**Project Location:** `C:\prometheus`
+
+## 1. Executive Summary
+
+Project Prometheus will deliver an advanced, multi-agent multimodal RAG system architected for extreme intelligence, production-level utility, upgradability, security, and efficiency. It will process documents and CMMS logs with cutting-edge accuracy, deployed centrally. Key features include advanced diagram/image extraction, modular expert troubleshooting (UI & Audio), multilingual support, and an ROI calculation module. Enhanced with an 8+ agent framework, GPU acceleration, caching, robust security, power efficiency, continuous improvement loops, and a user-friendly UI, it ensures ultra-fast performance and comprehensive understanding. **Future development ("Stage 2") plans include adding capabilities for generating draft Standard Operating Procedures (SOPs), user-to-user chat, and task management.** The architecture emphasizes modularity. The total investment estimate for the core RAG system (Phases 1-5) is **$40,000 - $105,000+** (reflecting central hardware), with Stage 2 features requiring separate future budget allocation.
+
+## 2. Key Objectives
+
+* **Core RAG System (Phases 1-5):**
+    * Multimodal Precision (incl. diagrams).
+    * Ultra-Fast Responses.
+    * User-Friendly Access (incl. visuals, audio troubleshooting, multilingual).
+    * Centralized Deployment.
+    * Upgradability & Maintainability.
+    * Advanced Security.
+    * Power Efficiency.
+    * Continuous Improvement (initial setup).
+    * Effective CMMS Integration.
+    * (Modular) Expert Troubleshooting Support.
+    * (Modular) Multilingual Capability.
+    * (Modular) ROI Calculation & Reporting.
+* **Future Development Objectives (Stage 2 / Phase 6+):**
+    * **Assist in Drafting SOPs & Formatted Instructions (Requires Human Review).**
+    * Enable User-to-User Collaboration via integrated Chat.
+    * Provide integrated Task Assignment and Management capabilities.
+
+## 3. Business Value
+(Adds value related to procedure standardization and efficiency in Stage 2)
+
+* Core RAG System: Reduced Downtime, Improved Fix Rates, Efficiency, Optimized Schedules, Productivity, Resource Allocation, Safety/Compliance, Knowledge Transfer, Data-Driven Decisions, Accessibility/Training.
+* ROI Module: Provides quantitative data for justification.
+* Stage 2 Enhancements: **Faster drafting of standardized procedures (SOPs),** improved team communication, streamlined workflow execution, better task visibility.
+
+## 4. Project Background
+
+* **Challenge:** Manufacturing operations need rapid, accurate insights, expert assistance, support for a diverse workforce, strong security, and future-proofing. **Standardizing procedures and facilitating collaboration/workflow are also key needs.** Quantifying benefits is crucial.
+* **Solution:** Project Prometheus will integrate a multi-agent RAG architecture deployed centrally. Key components include:
+    * 8+ Specialized AI Agents (**Synthesis Agent enhanced for structured output like SOP drafts**).
+    * Vector Database (Qdrant).
+    * Graph Database (Neo4j).
+    * Document Processing Pipeline.
+    * Integration with MVP One CMMS.
+    * Potential Orchestration Framework (e.g., Ray).
+    * Advanced Reasoning Models (e.g., Google Gemini).
+    * Modular Components (TTS, Language Detection, Translation Tools, ROI Calculation Module).
+    * **Future Modular Components (Stage 2):**
+        * **SOP Generation Logic (Prompting/Formatting).**
+        * **(Optional) Markdown-to-Printable Format Converter.**
+        * Real-time Chat Service & Database.
+        * Task Management Service & Database.
+    * Containerization (e.g., Docker).
+    * CI/CD Practices.
+    * Comprehensive Security Suite.
+    * Power Monitoring & Optimization strategies.
+    * Intuitive, role-based User Interface (**with features for initiating/reviewing SOP drafts in Stage 2**).
+
+## 5. High-Level Timeline
+
+* **Phases 1-5 (Core RAG System + ROI Module):** Estimated **21–27 weeks**.
+    * Phase 1: Foundation Setup (3-5 weeks)
+    * Phase 2: Enhanced Retrieval (Visuals) (4-5 weeks)
+    * Phase 3: Scaling, Synthesis, UI Proto, CI/CD (5-7 weeks)
+    * Phase 4: Production Readiness, Module Integration (Troubleshooting/Multilingual/ROI) (6-8 weeks)
+    * Phase 5: Central Deployment, Plant Rollout, CI Kickoff (4-5 weeks)
+* **Stage 2 Development (SOP Gen, Chat & Tasks):** To commence during **Phase 6 (Ongoing Improvement)** or as subsequent dedicated project phases, timeline TBD based on priority and resources.
+
+## 6. Scope
+
+* **In Scope (Phases 1-5):**
+    * Development and central deployment of core multimodal RAG system.
+    * Ingestion/processing of documents & CMMS data.
+    * Implementation of 8+ agent framework.
+    * Development of role-based UI (with visual/audio/multilingual features and ROI dashboard).
+    * Integration of GPU acceleration, security, power efficiency, CI/CD.
+    * Architecture and planning for modular integration of Troubleshooting, Multilingual support, and ROI Calculation modules (development likely in Phase 4).
+* **Planned Future Scope (Stage 2 / Phase 6+):**
+    * **Development and integration of SOP/Instruction Generation assistance module (output requires human review).**
+    * Development and integration of User-to-User Chat module.
+    * Development and integration of Task Assignment/Management module.
+* **Out of Scope (for initial 5 Phases):**
+    * Development of Stage 2 SOP Gen, Chat & Task modules.
+    * (Other exclusions remain as in v1.1)
+
+## 7. Key Stakeholders
+(No changes from v1.1)
+
+## 8. Resource Needs (High-Level)
+
+* **For Phases 1-5:** (As per v1.2).
+* **For Stage 2 (Future):** Additional backend developers, potentially frontend effort for SOP review/editing interface, database expertise, **SME time for reviewing generated SOPs.**
+
+## 9. High-Level Success Metrics (KPIs)
+
+* **For Core RAG System (Phases 1-5):** (As per v1.2).
+* **For Stage 2 Modules (Future):**
+    * **Time reduction in drafting new SOPs/instructions.**
+    * **User satisfaction with generated SOP draft quality.**
+    * Chat adoption/usage frequency.
+    * Task creation and completion rates.
+    * User satisfaction with collaboration/workflow features.
+
+## 10. Assumptions
+(No major changes from v1.2 for Phases 1-5)
+* **SMEs will be available and committed to reviewing/approving AI-generated SOP drafts before use.**
+
+## 11. Risks and Mitigation (High-Level)
+
+* (Risks from v1.2 remain for core system and other modules)
+* **Risk (Stage 2 - SOP Gen):** AI-generated SOPs contain critical errors or omissions despite RAG grounding.
+    * **Mitigation (Stage 2 - SOP Gen):** **Implement MANDATORY human expert review and approval workflow for all generated procedures. Clearly label outputs as DRAFTS. Train users on the importance of review. Fine-tune prompts for safety and completeness.**
+* **Risk (Stage 2 - SOP Gen):** Generated SOPs do not meet required company formatting standards.
+    * **Mitigation (Stage 2 - SOP Gen):** Use Markdown generation + post-processing/template engine; accept limitations or invest more in complex formatting generation/prompting.
+* **Risk (Stage 2 - Chat/Tasks):** Integrating real-time chat and workflow management increases system complexity.
+    * **Mitigation (Stage 2 - Chat/Tasks):** Design with loose coupling; thorough testing; consider API integration with existing platforms.
+
