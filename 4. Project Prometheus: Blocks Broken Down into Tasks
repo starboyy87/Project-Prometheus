@@ -1,0 +1,73 @@
+# Project Prometheus: Blocks Broken Down into Tasks
+
+**Document Version:** 1.5 (Incl. Stage 2 SOP Gen)
+**Date:** May 8, 2025
+**Prepared by:** AI Systems Lead (with PM Support)
+
+This document breaks down the major blocks within each phase into tasks, noting that SOP Generation, User Chat, and Task Management are planned as "Stage 2" features for development post-Phase 5.
+
+## Phase 1: Foundation Setup, CMMS Strategy Execution (Initial Steps), & Initial Agent Validation
+(No changes to tasks from v1.1)
+### Block 1.1 - 1.3: (Tasks remain as in v1.1)
+
+---
+
+## Phase 2: Enhanced Retrieval (incl. Advanced Diagram/Image Processing & Retrieval), Fusion & Efficiency Baseline
+(No changes to tasks from v1.1)
+### Block 2.1 - 2.4: (Tasks remain as in v1.1)
+
+---
+
+## Phase 3: Scalable Orchestration, Synthesis, UI & CI/CD Setup
+(No changes to tasks for Blocks 3.1-3.5 from v1.2)
+### Block 3.1: Agent Orchestration Integration & Core Agent Scaling
+### Block 3.2: Advanced Synthesis & Adaptive Interaction Agent Development
+### Block 3.3: UI Prototyping (with Diagram Display) & Central-Plant Communication Setup
+### Block 3.4: CI/CD Pipeline Implementation & Initial Power Optimization
+### Block 3.5: Foundational Module Development (Troubleshooting/Multilingual/ROI)
+
+---
+
+## Phase 4: Production Readiness, Agent Refinement, Security Hardening & Efficiency Tuning
+(No changes to tasks for Blocks 4.1-4.7 from v1.4)
+### Block 4.1: Final Core Agent Intelligence & Safety Mechanism Development
+### Block 4.2: Troubleshooting & Multilingual Module Integration & Testing
+### Block 4.3: ROI Calculation Module Development & Integration
+### Block 4.4: Comprehensive Security Implementation & Hardening
+### Block 4.5: Full UI Build (incl. Audio, Language, ROI Dashboard) & User Acceptance Testing (UAT)
+### Block 4.6: Production Performance & Power Efficiency Optimization
+### Block 4.7: Mature CI/CD & Deployment Dry Runs
+
+---
+
+## Phase 5: Central System Deployment, Plant Rollout (Connectivity & Access) & Continuous Improvement Kickoff
+(No changes to tasks from v1.3)
+### Block 5.1: Central System Production Deployment & Validation
+### Block 5.2: Plant Connectivity Rollout & Access Provisioning
+### Block 5.3: User Training (incl. Module Features)
+### Block 5.4: Formal Continuous Improvement Process Establishment (incl. process for reviewing ROI data)
+
+---
+
+## Phase 6: Ongoing Continuous Improvement & Maintenance (Cycles)
+
+### Block 6.1 - Block 6.4: (Tasks remain largely as in v1.2)
+### Block 6.5: ROI Module Refinement & Reporting Cycle
+* **Tasks:** (Remain as in v1.4)
+
+### Block 6.6 (New - Stage 2): SOP Generation Module Development & Rollout (If prioritized)
+* **Focus:** Developing Synthesis Agent prompts for SOPs, potential Markdown-to-PDF tool, UI for draft review, and establishing human review workflow.
+* **Tasks (High-Level):**
+    * **Task 6.6.1:** Design and test specific prompts for the `SynthesisAgent` to generate SOPs/instructions in Markdown format based on retrieved context.
+    * **Task 6.6.2:** Develop UI components for users to initiate SOP generation requests and view/edit the generated Markdown drafts.
+    * **Task 6.6.3:** (Optional) Develop or integrate a `MarkdownToPdfTool` for converting drafts to printable formats, potentially applying templates.
+    * **Task 6.6.4:** Define and document the mandatory human review and approval workflow for generated SOPs. Implement UI elements to support this workflow (e.g., status tracking, approval buttons for authorized users).
+    * **Task 6.6.5:** Testing (Functional, quality of generated drafts, usability of review interface).
+    * **Task 6.6.6:** Phased Rollout & User Training on SOP generation feature and review process.
+
+### Block 6.7 (Formerly 6.5): Chat Module Development & Rollout (Stage 2)
+* **Tasks (High-Level):** (Remain as in v1.4)
+
+### Block 6.8 (Formerly 6.6): Task Management Module Development & Rollout (Stage 2)
+* **Tasks (High-Level):** (Remain as in v1.4)
+
