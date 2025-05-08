@@ -1,0 +1,93 @@
+# Project Prometheus: Central Facility Hardware List Estimate
+
+**Document Version:** 1.0
+**Date:** May 8, 2025
+**Purpose:** To provide a detailed component list estimate for the central server infrastructure required to host Project Prometheus, supporting all planned modules and users from five manufacturing plants.
+
+**Note:** This represents a high-performance configuration estimate for the primary processing system(s). Redundancy/failover requirements would necessitate additional hardware. Final specifications require detailed load testing and benchmarking.
+
+---
+
+## 1. Compute Server(s)
+
+This covers the core processing units. Depending on load and redundancy strategy, this might be one very powerful server or potentially 2+ servers working in concert. This estimate focuses on the components needed for the primary workload.
+
+* **Component: GPUs (Graphics Processing Units)**
+    * **Requirement:** High-performance compute, large VRAM for AI model inference (LLM, Embeddings, DLA/OD, potentially local TTS/Translation) and training/fine-tuning if performed locally in the future.
+    * **Quantity Estimate:** 4 - 8+ units
+    * **Recommended Type:** Server-Grade AI Accelerators
+        * *High-End Option:* NVIDIA H100 (80GB) / H200 or future equivalents
+        * *Mid/High-End Option:* NVIDIA A100 (80GB)
+        * *Lower (but still powerful) Option:* NVIDIA L40S / RTX 6000 Ada Generation (Requires careful thermal management in server chassis)
+    * **Rationale:** Handles the bulk of AI computation. VRAM is critical for large models and batch processing. Server-grade preferred for reliability, support, and interconnects (NVLink).
+
+* **Component: CPUs (Central Processing Units)**
+    * **Requirement:** High core count, high clock speed, strong single-thread performance for orchestration, data processing, database interactions, and supporting GPU operations.
+    * **Quantity Estimate:** 2 - 4 Sockets (depending on server board)
+    * **Recommended Type:** Latest Generation Server CPUs
+        * Intel Xeon Scalable (e.g., Sapphire Rapids/Emerald Rapids or newer)
+        * AMD EPYC (e.g., Genoa/Bergamo or newer)
+    * **Rationale:** Manages overall system flow, non-GPU tasks, and data movement. Needs sufficient cores to avoid bottlenecks.
+
+* **Component: RAM (System Memory)**
+    * **Requirement:** Very large capacity, high speed, ECC (Error Correcting Code) for reliability. Needed for loading models, caching data, handling large contexts, database operations, and concurrent sessions.
+    * **Quantity Estimate:** 1 TB - 4 TB+
+    * **Recommended Type:** Server-Grade DDR5 ECC RDIMM/LRDIMM
+    * **Rationale:** Insufficient RAM is a common bottleneck in large AI systems. Generous allocation needed for performance and stability.
+
+* **Component: Motherboard(s)**
+    * **Requirement:** Server-grade board supporting multiple CPU sockets, required number of high-bandwidth PCIe slots (Gen 5+) for GPUs, high RAM capacity, appropriate chipset, and management features (e.g., IPMI).
+    * **Quantity Estimate:** 1-2 (depending on single vs. dual server approach for redundancy)
+    * **Recommended Type:** Reputable server motherboard manufacturer (e.g., Supermicro, ASUS, Gigabyte - Server lines, Dell, HPE).
+    * **Rationale:** Foundation connecting all components; needs bandwidth and stability.
+
+* **Component: Server Chassis**
+    * **Requirement:** Appropriate form factor (e.g., 4U, 5U rackmount) with excellent airflow/cooling designed to handle the thermal load of multiple high-power GPUs and CPUs. Sufficient drive bays.
+    * **Quantity Estimate:** 1-2+
+    * **Recommended Type:** GPU-optimized server chassis from reputable manufacturers.
+    * **Rationale:** Thermal management is critical for GPU performance and longevity.
+
+* **Component: Power Supplies (PSUs)**
+    * **Requirement:** High wattage (e.g., 2000W - 3000W+ per PSU), redundant (e.g., 1+1 or 2+2 configuration), high efficiency rating (e.g., 80+ Titanium/Platinum).
+    * **Quantity Estimate:** 2 - 4 per chassis (for redundancy)
+    * **Recommended Type:** Server-grade redundant PSUs matching chassis requirements.
+    * **Rationale:** Needs to reliably power multiple power-hungry GPUs and CPUs under load. Redundancy prevents single PSU failure from causing downtime.
+
+## 2. Storage System
+
+* **Component: Fast Tier Storage (OS, Databases, Active Data, Models)**
+    * **Requirement:** Very high IOPS (Input/Output Operations Per Second), low latency for database operations (Neo4j, Qdrant), model loading, and temporary processing.
+    * **Quantity Estimate:** 10 TB - 30 TB+ usable capacity
+    * **Recommended Type:** Data Center NVMe SSDs (U.2 or PCIe AIC format) with high endurance ratings (DWPD - Drive Writes Per Day). RAID configuration (e.g., RAID 10) recommended for performance and redundancy.
+    * **Rationale:** Database and model performance is often limited by storage speed. NVMe provides the necessary performance.
+
+* **Component: Bulk Storage (Raw Document Corpus, Logs, Backups - Optional/Alternative)**
+    * **Requirement:** Large capacity for storing potentially petabytes of raw documents and long-term logs if not kept entirely on SSDs. Lower performance requirement than the fast tier.
+    * **Quantity Estimate:** Scaled based on total document/log size (potentially 100TB+).
+    * **Recommended Type:** Network Attached Storage (NAS) or Storage Area Network (SAN) with high-capacity HDDs or QLC SSDs. Could also be larger capacity SAS SSDs within the main server(s).
+    * **Rationale:** More cost-effective for storing large volumes of less frequently accessed data. Needs reliable backup strategy.
+
+## 3. Networking Infrastructure (Central Facility)
+
+* **Component: Network Interface Cards (NICs)**
+    * **Requirement:** High throughput to handle aggregated traffic from 5 plants, database replication (if clustered), storage access (if using NAS/SAN), and internal service communication.
+    * **Quantity Estimate:** 2 - 4+ per server (potentially bonded or used for different networks)
+    * **Recommended Type:** 25 Gbps / 50 Gbps / 100 Gbps Ethernet NICs (SFP28 / QSFP28).
+    * **Rationale:** Avoids network becoming a bottleneck for the centralized system.
+
+* **Component: Network Switches**
+    * **Requirement:** Sufficient ports with matching high speed (25/50/100 Gbps) to connect servers, storage, and the uplink to the wider company network/WAN. Low latency is desirable.
+    * **Quantity Estimate:** 1+ (depending on port count and redundancy needs)
+    * **Recommended Type:** Data center grade switches.
+    * **Rationale:** Core of the central facility network fabric.
+
+## 4. Supporting Infrastructure
+
+* **Component: Rack(s):** Standard server racks to house the equipment.
+* **Component: Cooling:** Data center grade cooling sufficient for the heat load generated by the servers (especially GPUs).
+* **Component: Uninterruptible Power Supply (UPS):** Data center grade UPS to protect against power fluctuations and short outages.
+* **Component: KVM / Management:** Keyboard, Video, Mouse switch or remote management interface (e.g., IPMI) for server access.
+
+---
+
+This list provides a comprehensive view of the hardware components needed for a robust central deployment. The significant investment reflects the demanding nature of running a large-scale, multimodal AI system with advanced features for multiple locations concurrently.
