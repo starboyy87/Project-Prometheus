@@ -1,0 +1,73 @@
+# Project Prometheus: Cost-Effective Module Rollout Strategy
+
+**Document Version:** 1.3 (Incl. Stage 2 SOP Gen)
+**Date:** May 8, 2025
+**Goal:** Outline a phased rollout plan for Project Prometheus modules that prioritizes core value delivery and cost-effectiveness within a centralized deployment model.
+
+## 1. Guiding Principles for Cost-Effective Rollout
+
+* **Incremental Value Delivery:** Deploy core functionality first.
+* **Manage Complexity:** Introduce new modules sequentially.
+* **Control Compute Costs:** Phase resource-intensive features.
+* **Leverage Modularity:** Enable/disable features easily.
+* **Cloud vs. Local Flexibility:** Evaluate options for services like TTS/Translation.
+* **Pilot Testing:** Test new capabilities with limited groups.
+
+## 2. Initial Deployment Rollout Sequence (Core RAG System - "Stage 1" Functionality)
+
+This sequence focuses on deploying the core AI-driven information retrieval and assistance capabilities developed during Phases 1-5.
+
+**Rollout Phase 1: Minimum Viable Product (MVP) - Core RAG**
+* **Modules Activated:** Core Data Ingestion, Core Data Storage, Core Agents (base models), Basic UI.
+* **Functionality:** Basic text/CMMS query, text/basic image retrieval, synthesized answers.
+* **Target Timeline:** Pilot rollout access early in Project Phase 5.
+
+**Rollout Phase 2: Advanced Visual Intelligence**
+* **Modules Activated (Incremental):** Advanced Diagram/Image Processing Pipeline, Specialized Diagram Embedding & Indexing, Enhanced Retrieval Agents (Diagrams), Enhanced Fusion, UI updates for diagram display.
+* **Functionality:** Specific diagram/figure retrieval with context.
+* **Target Timeline:** Rolled out after MVP validation, potentially mid-Project Phase 5.
+
+**Rollout Phase 3: Accessibility & Broader Reach (Multilingual)**
+* **Modules Activated (Incremental):** Language Detection, Multilingual Config/Tools, Agent logic updates, UI updates.
+* **Functionality:** Users can interact in supported non-primary languages.
+* **Target Timeline:** Late Project Phase 5 or during Project Phase 6.
+
+**Rollout Phase 4: Enhanced Support (Expert Troubleshooting - UI & Audio)**
+* **Modules Activated (Incremental):** Expert Troubleshooting Logic, TTS Tool Integration, UI Audio Controls.
+* **Functionality:** Guided troubleshooting with optional audio narration.
+* **Target Timeline:** Late Project Phase 5 or during Project Phase 6.
+
+**Rollout Phase 5: Value Demonstration (ROI Calculation Module)**
+* **Modules Activated (Incremental):** ROI Calculation Backend, Enhanced Logging, UI for Baseline Input & ROI Dashboard.
+* **Functionality:** Tracks usage and estimates savings; results displayed on a dashboard.
+* **Target Timeline:** During Project Phase 6, after sufficient usage data is available.
+
+## 3. Future Development ("Stage 2" Functionality)
+
+This stage includes significant new features focused on content creation assistance, collaboration, and workflow, planned for development *after* the initial core RAG system (Rollout Phases 1-5) is deployed and stabilized.
+
+**Stage 2.A (New): SOP & Formatted Instruction Generation Module**
+* **Modules Activated:** Enhanced Synthesis Agent prompting, potential Markdown-to-PDF conversion tool, UI features for initiating/viewing generated drafts.
+* **Functionality:** Users can request the system to generate *draft* SOPs or formatted instructions based on retrieved context. **Output requires mandatory human review and approval.**
+* **Target Timeline:** Post-initial deployment (Project Phase 6+).
+* **Cost-Effectiveness Rationale:** Leverages existing retrieval/synthesis components. Development focuses on prompting and output formatting. Defers until core system is stable.
+
+**Stage 2.B (Formerly 2.A): User-to-User Chat Module**
+* **Modules Activated:** Real-time Chat Backend Service, Chat DB Schema Extensions, UI Chat Components, Presence Service.
+* **Functionality:** Users can communicate directly or in groups within the system.
+* **Target Timeline:** Post-initial deployment (Project Phase 6+).
+
+**Stage 2.C (Formerly 2.B): Task Assignment/Management Module**
+* **Modules Activated:** Task Management Backend Service, Task DB Schema Extensions, UI Task Components, Notification Integration.
+* **Functionality:** Users/AI can create, assign, and track operational tasks.
+* **Target Timeline:** Post-initial deployment (Project Phase 6+).
+
+## 4. Implementation Strategy Notes
+
+* **Feature Flags:** Implement flags for Advanced Visuals, Multilingual, Troubleshooting, ROI Calculation, **SOP Generation**, and future Chat/Task modules.
+* **Pilot Groups:** Use pilot groups for each rollout phase/stage.
+* **Monitoring:** Closely monitor system performance and user feedback.
+* **Cloud vs. Local Decision (TTS/Translation):** Use initial rollout data to inform TCO decisions.
+* **Human Review Workflow (SOP Gen):** Ensure a clear process is defined for the mandatory human review and approval of AI-generated SOPs/instructions.
+
+This phased rollout strategy delivers core AI value, enhances it with support modules, provides value demonstration (ROI), and then plans for content creation assistance, collaboration, and workflow features.
